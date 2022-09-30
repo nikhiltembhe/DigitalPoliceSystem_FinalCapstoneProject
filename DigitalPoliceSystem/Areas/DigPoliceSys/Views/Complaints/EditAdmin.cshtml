@@ -1,0 +1,78 @@
+﻿@model DigitalPoliceSystem.Models.Complaint
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+@using DigitalPoliceSystem.Models.Enums
+@using Microsoft.AspNetCore.Identity
+
+@*----- to find if user is logged in *@
+@inject SignInManager<IdentityUser> _signInManager
+
+@*----- gets the user object to see properties, roles *@
+@inject UserManager<IdentityUser> _userManager
+
+@{
+    bool isLoggedIn = _signInManager.IsSignedIn(this.User);
+
+    bool isUserAdmin = false;
+    IdentityUser user = await _userManager.GetUserAsync(this.User);         // gets the Logged In User
+    if (user != null)
+    {
+        isUserAdmin = await _userManager.IsInRoleAsync(user, MyIdentityRoleNames.PoliceAdmin.ToString());
+    }
+}
+<h1>Edit</h1>
+
+<h4>Complaint</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditAdmin">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ComplaintId" />
+            <div class="form-group">
+                @*<label asp-for="ComplaintDescription" class="control-label"></label>*@
+                <input hidden="hidden" asp-for="ComplaintDescription" class="form-control" />
+                <span asp-validation-for="ComplaintDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*<label asp-for="IncidentDate" class="control-label"></label>*@
+                <input hidden="hidden" asp-for="IncidentDate" class="form-control" />
+                <span asp-validation-for="IncidentDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*<label asp-for="ComplaintCategoryId" class="control-label"></label>*@
+                <select hidden="hidden" asp-for="ComplaintCategoryId" class="form-control" asp-items="ViewBag.ComplaintCategoryId"></select>
+                <span asp-validation-for="ComplaintCategoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*<label asp-for="PoliceStationId" class="control-label"></label>*@
+                <select hidden="hidden" asp-for="PoliceStationId" class="form-control" asp-items="ViewBag.PoliceStationId"></select>
+                <span asp-validation-for="PoliceStationId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ComplaintStateId" class="control-label">Complaint State</label>
+                <select asp-for="ComplaintStateId" class="form-control" asp-items="ViewBag.ComplaintStateId"></select>
+                <span asp-validation-for="ComplaintStateId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*<label asp-for="UserPropertyId" class="control-label">User Name</label>*@
+                <select hidden = "hidden" asp-for="UserPropertyId" class="form-control" asp-items="ViewBag.UserPropertyId"></select>
+                <span asp-validation-for="UserPropertyId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@*<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+*@
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

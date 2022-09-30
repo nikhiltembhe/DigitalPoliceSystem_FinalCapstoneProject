@@ -1,0 +1,67 @@
+﻿@model IEnumerable<DigitalPoliceSystem.Models.Complaint>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<br/>
+<h1>List of Complaints</h1>
+
+<p>
+    <br/>
+    @*<a asp-action="Create">Create New</a>*@
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ComplaintDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IncidentDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ComplaintCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PoliceStation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ComplaintState)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserProperty)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComplaintDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IncidentDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComplaintCategory.CompliantCategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PoliceStation.PoliceStationName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComplaintState.CompliantStateName)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.UserProperty.UserPropertyId)*@
+                @Html.DisplayFor(modelItem => item.UserProperty.UserPropertyName)
+            </td>
+            <td>
+                <a asp-action="EditAdmin" asp-route-id="@item.ComplaintId">Change Complaint Status</a> 
+                @*|<a asp-action="Details" asp-route-id="@item.ComplaintId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ComplaintId">Delete</a>*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

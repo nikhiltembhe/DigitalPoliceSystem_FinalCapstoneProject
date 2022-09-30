@@ -1,0 +1,39 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using DigitalPoliceSystem.Models.Enums
+@using Microsoft.AspNetCore.Identity
+
+
+@*----- to find if user is logged in *@
+@inject SignInManager<IdentityUser> _signInManager
+
+@*----- gets the user object to see properties, roles *@
+@inject UserManager<IdentityUser> _userManager
+
+@{
+    bool isLoggedIn = _signInManager.IsSignedIn(this.User);
+
+    bool isUserAdmin = false;
+    IdentityUser user = await _userManager.GetUserAsync(this.User);         // gets the Logged In User
+    if (user != null)
+    {
+        isUserAdmin = await _userManager.IsInRoleAsync(user, MyIdentityRoleNames.PoliceAdmin.ToString());
+    }
+}
+
+<section id="fish" class="d-flex align-items-center">
+    <div class="container">
+        <h1>You have successfully created a <span>Complaint</span></h1>
+        <br />
+        <h3>Where do you want to go?</h3>
+        <div>
+            <a href="/Index" class="btn-get-started scrollto ">Home Page</a>
+            <br />
+            <br />
+            <a <a asp-area="DigPoliceSys" asp-controller="Complaints" asp-action="GetComplaintsOfUser" asp-route-filterUserPropertyId="@user.Id" class="btn-get-started scrollto ">View your Complaint</a>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,157 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@*<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>*@
+
+<!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container" @*data-aos="zoom-out" data-aos-delay="100"*@>
+      <h1>Welcome to <span>Nagpur Police</span></h1>
+      <h2>A law enforcement agency responsible for Nagpur District of Maharashtra</h2>
+      <div class="d-flex">
+        <a href="#about" class="btn-get-started scrollto">Know More</a>
+        <a href="https://www.youtube.com/watch?v=fhbCnNCpekY&t=2s" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Nirbhaya Squad</span></a>
+      </div>
+    </div>
+  </section><!-- End Hero -->
+
+
+  @*<main id="main">*@
+    <div class="section-title">
+    
+    <h3>Helpline <span>Numbers</span></h3>
+    </div>
+    <!-- ======= Featured Services Section ======= -->
+    <section id="featured-services" class="featured-services">
+      <div class="container" @*data-aos="fade-up"*@>
+
+        <div class="row">
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" @*data-aos="fade-up" data-aos-delay="100"*@>
+              <div class="icon"><i class="bx bx-building"></i></div>
+                    <h4 class="title"><a href="">Control Room</a></h4>
+                    <p class="description"><a href="tel:100" class="description">100</a><br /><a href="tel:07122560200" class="description">0712-2560200</a></p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" @*data-aos="fade-up" data-aos-delay="200"*@>
+              <div class="icon"><i class="bx bx-female"></i></div>
+                    <h4 class="title"><a href="">Women Cell</a></h4>
+                    <p class="description"><a href="tel:1091" class="description">1091(Toll Free)</a><br /><a href="tel:0712-2233638" class="description">0712-2233638</a></p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" @*data-aos="fade-up" data-aos-delay="300"*@>
+              <div class="icon"><i class="bx bxs-traffic"></i></div>
+              <h4 class="title"><a href="">Traffic</a></h4>
+                    <p class="description"><a href="tel:07122555100" class="description">0712-2555100</a><br /><a href="tel:0712-2706350" class="description">0712-2706350</a> </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items mb-5 mb-lg-0">
+            <div class="icon-box" @*data-aos="fade-up" data-aos-delay="400"*@>
+              <div class="icon"><i class="bx bx-band-aid"></i></div>
+              <h4 class="title"><a href="">Medical</a></h4>
+                    <p class="description"><a href="tel:07122743588" class="description">0712 274 3588</a><br /><a href="tel:9830088884" class="description">983 008 8884</a></p>
+            </div>
+          </div>
+
+            <div class="col-md-6 col-lg-3 d-flex align-items mb-5 mb-lg-0">
+                <div class="icon-box" @*data-aos="fade-up" data-aos-delay="400"*@>
+                    <div class="icon"><i class="bx bx-phone"></i></div>
+                    <h4 class="title"><a href="">Senior Citizens Scheme Helpline</a></h4>
+                    <p class="description"><a href="tel:+917122564333" class="description">+91-712-2564333</a></p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 d-flex align-items mb-5 mb-lg-0">
+                <div class="icon-box" @*data-aos="fade-up" data-aos-delay="400"*@>
+                    <div class="icon"><i class="bx bx-phone"></i></div>
+                    <h4 class="title"><a href="">Child Help Line</a></h4>
+                    <p class="description"><a href="tel:+917122520699" class="description">+91-712-2520699</a></p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 d-flex align-items mb-5 mb-lg-0">
+                <div class="icon-box" @*data-aos="fade-up" data-aos-delay="400"*@>
+                    <div class="icon"><i class="bx bxs-bus-school"></i></div>
+                    <h4 class="title"><a href="">Fire Department</a></h4>
+                    <p class="description"><a href="tel:101" class="description">101</a></p>
+                </div>
+            </div>
+
+
+            <div class="col-md-6 col-lg-3 d-flex align-items mb-5 mb-lg-0">
+                <div class="icon-box" @*data-aos="fade-up" data-aos-delay="400"*@>
+                    <div class="icon"><i class="bx bxs-bell"></i></div>
+                    <h4 class="title"><a href="">Disaster Management Services</a></h4>
+                    <p class="description"><a href="tel:108" class="description">108</a></p>
+                </div>
+            </div>
+
+
+        </div>
+
+      </div>
+    </section><!-- End Featured Services Section -->
+
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about section-bg">
+      <div class="container" @*data-aos="fade-up"*@>
+
+        <div class="section-title">
+          <h2>About</h2>
+          <h3>Find Out More <span>About Us</span></h3>
+            <p>The division was established during the 1861 police re-organization; however, the city's policing history began before that time.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6" @*data-aos="fade-right" data-aos-delay="100"*@>
+                <img src="https://thc-i.thgim.com/public/the-arena/current-issues/g2g9fr/article54443461.ece/alternates/FREE_810/193031696jpg" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" @*data-aos="fade-up" data-aos-delay="100"*@>
+                <h3>Commissioner of Police: Amitesh Kumar</h3>
+            <p class="fst-italic">
+                    SHRI AMITESH KUMAR is a Indian Police Service Officer. He is of the rank.of Additional Director General of Police and He took over the charge as Commissioner of Police, Nagpur City.
+            </p>
+            <ul>
+              <li>
+                @*<i class="bx bx-store-alt"></i>*@
+                <div>
+                            <h5>Police Commissioner's Message</h5>
+                            <p>The strength of our services lies in you. Your constant support helps us to foster relationships with our society. Our officers and staff take great pride in their work and committed to the citizens of Nagpur to build safer and healthier society.</p>
+                            <br/>
+                            <p>The top level includes a commissioner of police (ranked Director General of police); one Joint CP (ranked Special Inspector General); Four CPs (DIG Rank); one administrator; one Crime, North Region and South Region leaders; Eight Deputy Commissioners - one for each of five zones, One for D.C.P. Economic Cell and cybercrime, one for special cases and one for traffic. The Criminal Investigation Department has one administrator.</p>
+                </div>
+              </li>
+              <li>
+                @*<i class="bx bx-images"></i>
+                <div>
+                  <h5>Magnam soluta odio exercitationem reprehenderi</h5>
+                  <p>Quo totam dolorum at pariatur aut distinctio dolorum laudantium illo direna pasata redi</p>
+                </div>*@
+              </li>
+            </ul>
+            <p>
+                    <h5>Nagpur City Police - With You, By You & For You</h5>
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+<div class="section-title">
+    <h2>Map</h2>
+    <h3>Police Stations <span>across Nagpur</span></h3>
+    </div>
+<iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d57846.02863753216!2d79.07998490877983!3d21.139843351314234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1spolice%20station!5e0!3m2!1sen!2sin!4v1663905371833!5m2!1sen!2sin" width="1300" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>

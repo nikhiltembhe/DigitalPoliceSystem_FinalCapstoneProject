@@ -1,0 +1,36 @@
+﻿@model DigitalPoliceSystem.Models.PoliceStation
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>PoliceStation</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PoliceStationName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PoliceStationName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PoliceStationPhNo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PoliceStationPhNo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PoliceStationAddress)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PoliceStationAddress)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.PoliceStationId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,43 @@
+﻿@model DigitalPoliceSystem.Models.UserProperty
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+@*<h1>Details</h1>*@
+<br/>
+
+<div>
+    <h1> @Html.DisplayFor(model => model.UserPropertyName)</h1>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UserPropertyEmailId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UserPropertyEmailId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UserPropertyName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UserPropertyName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UserPropertyPhoneNumer)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UserPropertyPhoneNumer)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UserPropertyAddress)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UserPropertyAddress)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.UserPropertyId">Edit</a> 
+    @*<a asp-action="Index">Back to List</a>*@
+</div>

@@ -1,0 +1,123 @@
+﻿@model DigitalPoliceSystem.Models.Complaint
+
+@{
+    ViewData["Title"] = "Create";
+}
+@using DigitalPoliceSystem.Models.Enums
+@using Microsoft.AspNetCore.Identity
+
+
+@*----- to find if user is logged in *@
+@inject SignInManager<IdentityUser> _signInManager
+
+@*----- gets the user object to see properties, roles *@
+@inject UserManager<IdentityUser> _userManager
+
+@{
+    bool isLoggedIn = _signInManager.IsSignedIn(this.User);
+
+    bool isUserAdmin = false;
+    IdentityUser user = await _userManager.GetUserAsync(this.User);         // gets the Logged In User
+    if (user != null)
+    {
+        isUserAdmin = await _userManager.IsInRoleAsync(user, MyIdentityRoleNames.PoliceAdmin.ToString());
+    }
+}
+<h1>Create</h1>
+
+<h4>Complaint</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label for="UserName" class="control-label"> User Name </label>
+                <input type="text" readonly="readonly" class="form-control" value="@ViewBag.UserProperty" />
+                </div>
+
+
+            <div class="form-group">
+                <label asp-for="ComplaintDescription" class="control-label"></label>
+                <textarea asp-for="ComplaintDescription" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="ComplaintDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IncidentDate" class="control-label"> Incident Date</label>
+                <input asp-for="IncidentDate" class="form-control" />  @*id="datepicker" type="text"*@
+                <span asp-validation-for="IncidentDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ComplaintCategoryId" class="control-label"> Complaint Category</label>
+                <select asp-for="ComplaintCategoryId" class ="form-control" asp-items="ViewBag.ComplaintCategoryId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PoliceStationId" class="control-label"> Police Station</label>
+                <select asp-for="PoliceStationId" class ="form-control" asp-items="ViewBag.PoliceStationId"></select>
+            </div>
+            
+            
+                <div class="form-group">
+                @*<label  asp-for="ComplaintStateId" class="control-label"></label>*@
+                <select hidden="hidden" asp-for="ComplaintStateId" class="form-control"  asp-items="ViewBag.ComplaintStateId"></select>
+                </div>
+            
+
+            <div class="form-group">
+                @*<label asp-for="UserPropertyId" class="control-label"></label>*@
+                @*<select asp-for="UserPropertyId" class ="form-control" asp-items="ViewBag.UserPropertyId"></select>*@
+                <input type="hidden" asp-for="UserPropertyId" class="form-control" readonly="readonly" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@*<div>
+    <a asp-action="Index">Back to List</a>
+</div>*@
+
+@section HeadAnotherScripts{
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
+    <script>
+        $(function () {
+            $('#datepicker').datetimepicker({ minDate: -20, maxDate: "+1M +10D" });
+        });
+    </script>*@
+
+
+
+
+
+    @*<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#datepicker").datepicker({  maxDate: "0D" });
+        });
+    </script>*@
+}
+
+@section HeadScripts {
+    @*<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">*@
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    @*<script src="//code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#IncidentDate").datepicker({ minDate: -20, maxDate: "+1M +10D" });
+        });
+    </script>*@
+}

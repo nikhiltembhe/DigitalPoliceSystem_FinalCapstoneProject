@@ -1,0 +1,71 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IEnumerable<DigitalPoliceSystem.Models.Complaint>
+
+
+@*----- gets the user object to see properties, roles *@
+@inject UserManager<IdentityUser> _userManager
+@{
+    ViewData["Title"] = "Index";
+    IdentityUser user = await _userManager.GetUserAsync(this.User);         // gets the Logged In User
+}
+<br/>
+<h1>Your Complaints</h1>
+
+<p>
+    <a asp-area="DigPoliceSys" asp-controller="Complaints" asp-action="Create" asp-route-id="@user.Id">Create New Complaint</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ComplaintDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IncidentDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ComplaintCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PoliceStation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ComplaintState)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserProperty)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComplaintDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IncidentDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComplaintCategory.CompliantCategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PoliceStation.PoliceStationName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComplaintState.CompliantStateName)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.UserProperty.UserPropertyId)*@
+                @Html.DisplayFor(modelItem => item.UserProperty.UserPropertyName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ComplaintId">Edit your complaint</a> |
+                <a asp-action="Details" asp-route-id="@item.ComplaintId">Detail Report</a> |
+                <a asp-action="Delete" asp-route-id="@item.ComplaintId">Delete this complaint</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

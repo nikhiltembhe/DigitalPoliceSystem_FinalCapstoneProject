@@ -1,0 +1,48 @@
+﻿@model IEnumerable<DigitalPoliceSystem.Models.PoliceStation>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<br/>
+<h1>List of all Police Stations</h1>
+
+<p>
+    <br />
+    @*<a asp-action="Create">Create New</a>*@
+</p>
+<table class="table table-bordered">
+    <thead class="table bg-primary">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PoliceStationName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PoliceStationPhNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PoliceStationAddress)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PoliceStationName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PoliceStationPhNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PoliceStationAddress)
+            </td>
+            @*<td>
+                <a asp-action="Edit" asp-route-id="@item.PoliceStationId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PoliceStationId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PoliceStationId">Delete</a>
+            </td>*@
+        </tr>
+}
+    </tbody>
+</table>
