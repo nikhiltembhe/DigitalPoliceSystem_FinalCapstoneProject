@@ -1,6 +1,6 @@
 # FinalCapstoneProject
 
-The Digital Police System Final Capstone Project on GitHub includes the following features:
+The Digital Police System includes the following features:
 
 #### User Authentication:<br>
 
